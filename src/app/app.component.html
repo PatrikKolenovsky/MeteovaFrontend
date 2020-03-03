@@ -1,12 +1,19 @@
 <div class="container">
-  <div class="jumbotron">
-    <h1>Welcome</h1>
-    <h2>Angular & Bootstrap Demo</h2>
+  <div class="row">
+    <div class="col-sm">
+      <ul class="nav nav-tabs ml-3">
+        <li class="nav-item"><a class="nav-link" routerLinkActive="active" routerLink="/">Domu</a>
+        </li>
+        <li class="nav-item"><a class="nav-link" routerLinkActive="active" routerLink="/weather">Počasí</a>
+        </li>
+      </ul>
+    </div>
   </div>
-  <div class="panel panel-primary">
-    <div class="panel-heading">Status</div>
-    <div class="panel-body">
-      <h3>{{title}}</h3>
+  <div class="row">
+    <div class="col">
+      <div class="tab-content">
+        <router-outlet></router-outlet>
+      </div>
     </div>
   </div>
 </div>

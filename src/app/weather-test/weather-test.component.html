@@ -1,0 +1,20 @@
+<table class="table">
+  <thead>
+  <tr>
+    <th></th>
+    <th scope="col">Datum</th>
+    <th scope="col">Teplota(c)</th>
+    <th scope="col">Teplota(f)</th>
+    <th scope="col">Souhrn</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let weather of weatherData">
+    <th scope="row"></th>
+    <td>{{weather.date | date }}</td>
+    <td>{{weather.temperatureC}}</td>
+    <td>{{weather.temperatureF}}</td>
+    <td>{{weather.summary}}</td>
+  </tr>
+  </tbody>
+</table>
