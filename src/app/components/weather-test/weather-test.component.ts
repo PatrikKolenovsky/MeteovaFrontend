@@ -1,6 +1,6 @@
 import {AfterViewInit, Component, OnInit} from '@angular/core';
-import {WeatherService} from '../services/weather.service';
-import {Weather} from '../services/model/weather.model';
+import {WeatherService} from '../../services/weather.service';
+import {Weather} from '../../model/weather.model';
 
 @Component({
   selector: 'app-weather-test',

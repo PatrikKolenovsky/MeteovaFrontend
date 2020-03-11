@@ -1,5 +1,6 @@
 import { Component, OnInit, AfterViewInit, Input } from '@angular/core';
 import * as L from 'leaflet';
+import {ApiManager} from '../../api-manager';
 
 @Component({
   selector: 'app-map',
@@ -25,7 +26,7 @@ export class MapComponent implements AfterViewInit {
       zoom: 14
     });
 
-    const tiles = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    const tiles = L.tileLayer(ApiManager.STREET_MAP_API + '{z}/{x}/{y}.png', {
       attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
     });
 
