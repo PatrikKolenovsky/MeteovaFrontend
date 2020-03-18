@@ -1,0 +1,14 @@
+.logo{
+  height: 50px;
+}
+.dot{
+  width: 6px;
+  height: 6px;
+  margin: 52px;
+  margin-right: 10px;
+  margin-left: 10px;
+}
+.footer-background{
+  float: bottom;
+  background: bottom repeat-x #2f333e;
+}

@@ -5,12 +5,14 @@ import { WeatherTestComponent } from './components/weather-test/weather-test.com
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule} from '@angular/common/http';
 import { MapComponent } from './components/map/map.component';
+import { AboutProjectComponent } from './components/about-project/about-project.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     WeatherTestComponent,
     MapComponent,
+    AboutProjectComponent,
   ],
   imports: [
     BrowserModule,

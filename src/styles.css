@@ -1,2 +1,65 @@
 /* You can add global styles to this file, and also import other style files */
 @import '~bootstrap/dist/css/bootstrap.min.css';
+
+.text-primary-std {
+  font-weight: 500;
+  color: #23BAD7;
+  font-family: "Rams", sans-serif;
+  font-size: large;
+}
+
+.cl-primary-std {
+  color: #23BAD7;
+}
+
+.text-primary-dark {
+  font-weight: 500;
+  color: #383841;
+  font-family: "Rams", sans-serif;
+  font-size: large;
+}
+
+.text-primary-dark:hover {
+  color: #23BAD7;
+}
+
+.text-primary-std:hover {
+  color: #383841;
+}
+
+.li:hover {
+  background-color: white !important;
+  border: none;
+}
+
+.mt-40-px {
+  margin-top: 40px;
+}
+
+.mt-32-px {
+  margin-top: 32px;
+}
+
+.text-white {
+  color: white;
+}
+
+.mt-10-px {
+  margin-top: 10px;
+}
+
+.mt-7-px {
+  margin-top: 7px;
+}
+
+.mt-4-px {
+  margin-top: 4px;
+}
+
+.ml-10-px {
+  margin-left: 10px;
+}
+
+.mb-15-px {
+  margin-bottom: 15px;
+}
