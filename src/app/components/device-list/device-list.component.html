@@ -1,0 +1,12 @@
+<input class="mt-4-px pd-5-px ml-10-px" placeholder="Vyhledat zařízení" type="text">
+
+<select class="mt-6-px pd-7-px ml-10-px text-primary-dark-no-hv text-primary-font">
+    <option *ngFor="let deviceSector of deviceDataBySector">
+
+      {{deviceSector.devicesBySector}}
+<!--  <option *ngFor="let device of deviceSector"  value="{{deviceSector.devicesBySector}}">-->
+<!--      {{deviceSector.city}}{{deviceSector.citySector}} {{deviceSector.streetAddress}}-->
+<!--</option>-->
+    </option>
+</select>
+

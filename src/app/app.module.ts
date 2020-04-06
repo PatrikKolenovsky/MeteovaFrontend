@@ -6,6 +6,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule} from '@angular/common/http';
 import { MapComponent } from './components/map/map.component';
 import { AboutProjectComponent } from './components/about-project/about-project.component';
+import { DeviceListComponent } from './components/device-list/device-list.component';
 
 @NgModule({
   declarations: [
@@ -13,6 +14,7 @@ import { AboutProjectComponent } from './components/about-project/about-project.
     WeatherTestComponent,
     MapComponent,
     AboutProjectComponent,
+    DeviceListComponent,
   ],
   imports: [
     BrowserModule,
