@@ -1,6 +1,6 @@
 import {AfterViewInit, Component, OnInit} from '@angular/core';
-import {DeviceSector} from '../../model/device-sector.model';
 import {RestApiService} from '../../services/rest-api.service';
+import {Device} from '../../model/device.model';
 
 @Component({
   selector: 'app-device-list',
@@ -8,23 +8,28 @@ import {RestApiService} from '../../services/rest-api.service';
   styleUrls: ['./device-list.component.css']
 })
 export class DeviceListComponent implements AfterViewInit {
-
-  deviceDataBySector: Array<DeviceSector> = [];
-
+  selectedDevice: Device | null;
+  deviceData: Array<Device> = [];
   constructor(
     private readonly restApiService: RestApiService
   ) {
   }
 
   ngAfterViewInit(): void {
-    this.getDeviceDataBySector();
+    this.restApiService.getAllDeviceData()
+      .subscribe(
+        (deviceData: Array<Device>) => this.deviceData = deviceData,
+        (error) => console.log(error),
+        () => {
+        }
+      );
   }
 
-  getDeviceDataBySector(): void {
-    this.restApiService.getDeviceDataBySector()
+  selectDeviceHandler(event: any) {
+    this.restApiService.getDeviceDataById(event.target.value)
       .subscribe(
-        (deviceDataBySector: Array<DeviceSector>) => this.deviceDataBySector = deviceDataBySector, // Podobné `then` metodě
-        (error) => console.log(error), // Podobné `catch()` metodě
+        (selectedDevice: Device) => this.selectedDevice = selectedDevice,
+        (error) => console.log(error),
         () => {
         }
       );
