@@ -1,6 +1,7 @@
-import {AfterViewInit, Component, OnInit} from '@angular/core';
+import {AfterViewInit, Component} from '@angular/core';
 import {RestApiService} from '../../services/rest-api.service';
 import {Device} from '../../model/device.model';
+import {DataTransferService} from '../../services/data-transfer.service';
 
 @Component({
   selector: 'app-device-list',
@@ -8,10 +9,10 @@ import {Device} from '../../model/device.model';
   styleUrls: ['./device-list.component.css']
 })
 export class DeviceListComponent implements AfterViewInit {
-  selectedDevice: Device | null;
   deviceData: Array<Device> = [];
   constructor(
-    private readonly restApiService: RestApiService
+    private readonly restApiService: RestApiService,
+    private dataTransferService: DataTransferService
   ) {
   }
 
@@ -26,12 +27,6 @@ export class DeviceListComponent implements AfterViewInit {
   }
 
   selectDeviceHandler(event: any) {
-    this.restApiService.getDeviceDataById(event.target.value)
-      .subscribe(
-        (selectedDevice: Device) => this.selectedDevice = selectedDevice,
-        (error) => console.log(error),
-        () => {
-        }
-      );
+    this.dataTransferService.nextMessage(event.target.value);
   }
 }

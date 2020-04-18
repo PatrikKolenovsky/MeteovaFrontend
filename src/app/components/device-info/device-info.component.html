@@ -1,9 +1,15 @@
-<table>
-  INFO
+<table *ngIf="selectedDevice!==undefined">
   <tr>
-<!--    <td>ID : {{selectedDevice.deviceId}}</td>-->
-<!--    <td>Ulice : {{selectedDevice.street}}</td>-->
-<!--    <td>Sektor : {{selectedDevice.citySector}}</td>-->
-<!--    <td>Město : {{selectedDevice.city}}</td>-->
+    <td><b> ID </b> {{selectedDevice.deviceId}} </td>
   </tr>
+  <tr>
+    <td><b> device name id </b> {{selectedDevice.deviceNameId}} </td>
+  </tr>
+  <tr>
+    <td><b> device location </b> {{selectedDevice.device_location}} </td>
+  </tr>
+  <tr>
+    <td><b> module </b> {{selectedDevice.module}} </td>
+  </tr>
+
 </table>
