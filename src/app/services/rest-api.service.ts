@@ -17,4 +17,8 @@ export class RestApiService {
   getDeviceDataById(id): Observable<any> {
     return this.http.get<Array<Device>>(ApiManager.BACKEND_API + '/device/' + id);
   }
+
+  getAllDeviceDataByFulltext(search): Observable<any> {
+    return this.http.get<Array<Device>>(ApiManager.BACKEND_API + '/device?location=' + search);
+  }
 }
