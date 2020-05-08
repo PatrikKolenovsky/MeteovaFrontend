@@ -1,5 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
-@import '~bootstrap/dist/css/bootstrap.min.css';
+@import "bootstrap.min.css";
 
 .text-primary-font{
   font-family: "Rams", sans-serif;
@@ -85,4 +85,25 @@
 }
 .pd-8-px{
   padding: 8px;
+}
+
+.bd-light{
+  border: 1px solid #DBDBDB;
+}
+
+.pd-btn{
+  padding-left: 10px;
+  padding-right: 25px;
+  padding-top: 6px;
+  padding-bottom: 4px;
+}
+
+.text-grey{
+  color: #868688;
+}
+.wd-mx-co{
+  width: max-content;
+}
+.d-grid{
+  display: grid;
 }

@@ -1,10 +1,15 @@
-<!--<input class="mt-4-px pd-5-px ml-10-px" placeholder="Vyhledat zařízení" type="text">-->
-
-<select class="mt-6-px pd-7-px ml-10-px text-primary-dark-no-hv text-primary-font"
-        (change)="selectDeviceHandler($event)">
-  <option selected disabled hidden>-- Vyberte stanici --</option>
-  <option *ngFor="let device of deviceData" value="{{device.deviceId}}">
-    {{device.device_location}}
-  </option>
-</select>
-
+<div (click)="toggleContent()" class="d-grid ml-5">
+  <input class="mt-4-px pd-btn bd-light"  (keyup)="selectDeviceFulltextHandler($event)"
+         placeholder="Vyhledat zařízení"
+         type="text">
+  <div id="#device-select-list" class="dropdown text-primary-dark-no-hv text-primary-font wd-mx-co"
+  >
+    <div *ngIf="content == true">
+      <div class="dropdown-content wd-mx-co">
+        <div *ngFor="let device of deviceData" (click)="selectDeviceHandler($event);toggleContent()">
+          <div class="dropdown-item pd-5-px" id="{{device.deviceId}}">{{device.device_location}}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
