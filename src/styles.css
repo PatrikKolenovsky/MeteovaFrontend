@@ -39,6 +39,9 @@
   border: none;
 }
 
+.d-inline-flex{
+  display: inline-flex !important;
+}
 .mt-40-px {
   margin-top: 40px;
 }
@@ -71,6 +74,9 @@
 
 .ml-10-px {
   margin-left: 10px;
+}
+.ml-30-px {
+  margin-left: 30px;
 }
 
 .mb-15-px {

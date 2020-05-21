@@ -1,23 +1,27 @@
 <div class="container">
   <div class="row">
-    <ul class="nav nav-tabs ml-3 mt-10-px mb-1 bottom fle">
-      <li class="mt-6-px">
+    <ul class="nav nav-tabs ml-3 mt-10-px mb-1" >
+      <li class="mt-6-px col-md-4 col-lg-3 col-xs-12">
         <a routerLink="/">
           <img alt="logo-meteova" class="logo" src="assets/images/logo_medium_side.png">
-          <!--            <span class="ml-10-px text-primary-dark">METE</span>-->
-          <!--            <span class="cl-primary-std">OVA</span>-->
         </a>
       </li>
-      <li class="navbar-right nav-item mt-32-px mr-15-px">
+      <li class="nav-item col-md-3 col-sm-4 col-xs-4 col-lg-2  col-md-2 mt-28-px d-inline-flex">
+        <span class="hidden-sm hidden-xs ">
+          <img class="dot" alt="dot" src="assets/images/dot.png">
+        </span>
+        <a class="nav-link hidden-sm hidden-xs  text-primary-dark " routerLink="/about">O projektu</a>
+
+      </li>
+      <li class="nav-item  hidden-sm hidden-xs col-lg-2 col-md-2  mt-28-px d-inline-flex">
+        <span class="hidden-sm hidden-xs ">
+          <img class="dot" alt="dot" src="assets/images/dot.png">
+        </span>
+        <a class="nav-link hidden-sm hidden-xs  text-primary-dark" routerLink="/">Mapa</a>
+      </li>
+      <li class="nav-item  col-xs-12 col-sm-12 col-md-3 col-lg-push-2 mt-32-px mr-15-px">
         <app-device-list></app-device-list>
       </li>
-      <li class="mt-5 mt-40-px"><img class="dot" alt="dot" src="assets/images/dot.png"></li>
-      <li class="nav-item mt-28-px"><a class="nav-link text-primary-dark" routerLink="/about">O projektu</a>
-      </li>
-      <li class="mt-4 mt-40-px"><img class="dot" alt="dot" src="assets/images/dot.png"></li>
-      <li class="nav-item mt-28-px "><a class="nav-link  text-primary-dark" routerLink="/"> Mapa</a>
-      </li>
-      <li class="mt-4 mt-40-px"><img class="dot" alt="dot" src="assets/images/dot.png"></li>
     </ul>
   </div>
   <div class="row">
