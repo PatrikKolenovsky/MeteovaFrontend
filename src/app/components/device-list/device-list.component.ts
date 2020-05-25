@@ -28,18 +28,14 @@ export class DeviceListComponent implements AfterViewInit {
   }
 
   toggleContent() {
-    if ( this.content === false || this.content === undefined){
-      this.content = true;
-    }else{
-      this.content = false;
-    }
+    this.content = this.content === false || this.content === undefined;
   }
 
 
   selectDeviceHandler(event) {
-    var target = event.target || event.currentTarget;
-    var idAttr = target.attributes.id;
-    var selectedDeviceId = idAttr.nodeValue;
+    const target = event.target || event.currentTarget;
+    const idAttr = target.attributes.id;
+    const selectedDeviceId = idAttr.nodeValue;
     this.dataTransferService.nextMessage(selectedDeviceId);
     this.toggleContent();
   }

@@ -26,3 +26,7 @@
 .dropdown-content {
   display: block;
 }
+
+.device-list-text{
+  font-size: large;
+}

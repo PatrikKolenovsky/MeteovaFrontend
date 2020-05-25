@@ -1,4 +1,4 @@
-import {Component, OnChanges, OnInit, SimpleChanges} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Device} from '../../model/device.model';
 import {RestApiService} from '../../services/rest-api.service';
 import {DataTransferService} from '../../services/data-transfer.service';

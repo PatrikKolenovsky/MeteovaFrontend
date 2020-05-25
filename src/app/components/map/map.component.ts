@@ -1,28 +1,52 @@
-import { Component, OnInit, AfterViewInit, Input } from '@angular/core';
+import {Component, OnInit, AfterViewInit, Input} from '@angular/core';
 import * as L from 'leaflet';
 import {ApiManager} from '../../api-manager';
+import {Device} from '../../model/device.model';
+import {DataTransferService} from '../../services/data-transfer.service';
+import {RestApiService} from '../../services/rest-api.service';
 
 @Component({
   selector: 'app-map',
   templateUrl: './map.component.html',
   styleUrls: ['./map.component.css']
 })
-export class MapComponent implements AfterViewInit {
-
+export class MapComponent implements AfterViewInit, OnInit {
+  selectedDevice: Device;
   private map;
 
   @Input()
-  public markers: {lat: number, long: number}[];
+  public markers: { lat: number, long: number }[];
 
-  constructor() { }
+  constructor(private readonly restApiService: RestApiService,
+              private dataTransferService: DataTransferService) {
+  }
+
+  ngOnInit() {
+    this.dataTransferService.sharedMessage.subscribe(message => {
+        if (message != null) {
+          this.restApiService.getDeviceDataById(message)
+            .subscribe(
+              (selectedDevice: Device) => this.selectedDevice = selectedDevice,
+              (error) => console.log(error),
+              () => {
+              }
+            );
+        }
+      }
+    );
+  }
 
   ngAfterViewInit(): void {
     this.initMap();
   }
 
+  closeSelectedDevice() {
+    this.selectedDevice = undefined;
+  }
+
   private initMap(): void {
     this.map = L.map('map', {
-      center: [ 49.84058, 18.28829 ],
+      center: [49.84058, 18.28829],
       zoom: 14
     });
 
@@ -40,7 +64,8 @@ export class MapComponent implements AfterViewInit {
       let i: number;
 
       for (i = 0; i < this.markers.length; ++i) {
-        L.marker([this.markers[i].lat, this.markers[i].long], {title: "Nazev stanice/destinace"}).bindPopup("Informace o tehle stanici").openPopup().addTo(this.map);
+        L.marker([this.markers[i].lat, this.markers[i].long],
+          {title: 'Nazev stanice/destinace'}).bindPopup('Informace o tehle stanici').openPopup().addTo(this.map);
       }
     }
   }
