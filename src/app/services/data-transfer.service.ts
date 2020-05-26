@@ -15,5 +15,4 @@ export class DataTransferService {
     this.message.next(message);
   }
 
-
 }

@@ -10,50 +10,26 @@ import {DataTransferService} from '../../services/data-transfer.service';
 })
 export class DeviceInfoComponent implements OnInit {
   selectedDevice: Device;
+  selectedDeviceId: number;
   constructor(private readonly restApiService: RestApiService,
               private dataTransferService: DataTransferService) {
   }
 
   ngOnInit() {
     this.dataTransferService.sharedMessage.subscribe(message => {
-      if (message != null) {
-      this.restApiService.getDeviceDataById(message)
+      if (message === 'detail') {
+      this.restApiService.getDeviceDataById(this.selectedDeviceId)
         .subscribe(
           (selectedDevice: Device) => this.selectedDevice = selectedDevice,
           (error) => console.log(error),
           () => {
           }
         );
+      } else if (message != null) {
+        this.selectedDeviceId = message;
       }
     }
     );
   }
-
-//   this.appParameters.subscribe(params => {
-//   const id = params['id'];
-//   if (id !== null && id!== undefined) {
-//   this.getUser(id).subscribe(user => this.user = user);
-// }
-// });
-//   this.service.service1().subscribe( res1 => {
-//   this.service.service1().subscribe( res2 => {
-//   this.service.service1().subscribe( res3 => {
-//   this.funcA(res1, res2, res3);
-// });
-// });
-// });
-//   ngOnChanges(changes: SimpleChanges): void {
-//     this.setSelectedDevice();
-//   }
-
-  // setSelectedDevice(deviceId) {
-  //     this.restApiService.getDeviceDataById(deviceId)
-  //       .subscribe(
-  //         (selectedDevice: Device) => this.selectedDevice = selectedDevice,
-  //         (error) => console.log(error),
-  //         () => {
-  //         }
-  //       );
-  // }
 
 }

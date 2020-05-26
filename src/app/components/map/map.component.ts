@@ -40,6 +40,11 @@ export class MapComponent implements AfterViewInit, OnInit {
     this.initMap();
   }
 
+  showDetail() {
+    this.closeSelectedDevice();
+    this.dataTransferService.nextMessage('detail');
+  }
+
   closeSelectedDevice() {
     this.selectedDevice = undefined;
   }

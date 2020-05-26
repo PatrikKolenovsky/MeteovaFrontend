@@ -17,6 +17,7 @@ export class DeviceListComponent implements AfterViewInit {
     private dataTransferService: DataTransferService,
   ) {
   }
+
   ngAfterViewInit(): void {
     this.restApiService.getAllDeviceData()
       .subscribe(
@@ -30,7 +31,6 @@ export class DeviceListComponent implements AfterViewInit {
   toggleContent() {
     this.content = this.content === false || this.content === undefined;
   }
-
 
   selectDeviceHandler(event) {
     const target = event.target || event.currentTarget;
