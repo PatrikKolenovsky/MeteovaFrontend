@@ -34,19 +34,23 @@ export class MapComponent implements AfterViewInit, OnInit {
         }
       }
     );
+    this.closeSelectedDevice();
   }
 
   ngAfterViewInit(): void {
     this.initMap();
   }
 
-  showDetail() {
-    this.closeSelectedDevice();
-    this.dataTransferService.nextMessage('detail');
-  }
-
   closeSelectedDevice() {
     this.selectedDevice = undefined;
+  }
+
+  showDetail() {
+    this.dataTransferService.nextMessage('detail');
+    setTimeout(() => {
+      this.closeSelectedDevice();
+    }, 30);
+
   }
 
   private initMap(): void {
