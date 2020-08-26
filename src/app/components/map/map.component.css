@@ -1,0 +1,28 @@
+.map-container {
+  top: 75px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: 2px;
+}
+
+.map-legend{
+  background: white;
+  z-index: 10000;
+  height: 215px;
+  margin-top: -240px;
+  margin-right: 10px;
+  overflow: hidden;
+  text-align: left;
+  color: rgb(86, 86, 86);
+  -moz-user-select: none;
+  padding: 8px;
+  border-radius: 2px;
+  background-clip: padding-box;
+  box-shadow: 0px 1px 4px -1px rgba(0, 0, 0, 0.3);
+  border-left: 0px none;
+}
+#map {
+  z-index:10;
+  height: 90vh;
+}

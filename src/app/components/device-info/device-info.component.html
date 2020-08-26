@@ -1,0 +1,79 @@
+<div *ngIf="selectedDevice!==undefined" class="jumbotron mt-28-px">
+  <table>
+    <tr>
+      <td><b> ID: </b> {{selectedDevice.deviceId}} </td>
+    </tr>
+    <tr>
+      <td><b> Device name id: </b> {{selectedDevice.deviceNameId}} </td>
+    </tr>
+    <tr>
+      <td><b> Device location: </b> {{selectedDevice.device_location}} </td>
+    </tr>
+    <tr>
+      <td><b> Module data: </b></td>
+    </tr>
+  </table>
+  [
+  <table class="ml-10-px" *ngFor="let module of moduleData ">
+    <tr>
+      <td><b> Module id: </b>  {{module.moduleId}} </td>
+    </tr>
+    <tr>
+      <td><b>Module name: </b> {{module.name}} </td>
+    </tr>
+    <tr>
+      <td><b>Module description:</b> {{module.description}} </td>
+    </tr>
+    <tr>
+      <td><b>Variables:</b></td>
+    </tr>
+    [
+    <tr class="ml-20-px" *ngFor="let variable of module.variable">
+      <td>
+        <b>name : </b>{{variable.name}}, <br>
+        <b>pub : </b>{{variable.pub}}, <br>
+        <b>description : </b>{{variable.description}}, <br>
+        <b>valint : </b> [
+        <span *ngFor="let valint of variable.valint">
+          <b> valIntId : </b> {{valint.valIntId}},
+          <b> variableId : </b> {{valint.variableId}},
+          <b> value : </b> {{valint.value}},
+          <b> time : </b> {{valint.time}}
+        </span>
+        ], <br>
+        <span *ngFor="let valstring of variable.valstring">
+          <b> valStringId : </b>{{valstring.valStringId}},
+          <b> variableId : </b>{{valstring.variableId}},
+          <b> value : </b>{{valstring.value}},
+          <b> time : </b>{{valstring.time}}
+        </span>
+        ], <br>
+        <span *ngFor="let valreal of variable.valreal">
+          <b> valRealId : </b>{{valreal.valRealId}},
+          <b> variableId : </b>{{valreal.variableId}},
+          <b> value : </b>{{valreal.value}},
+          <b> time : </b>{{valreal.time}}
+        </span>
+        ], <br>
+      </td>
+    </tr>
+    ]
+  </table>
+  ]
+</div>
+<div class="btn-info btn" (click)="setEnviData()"> Zobrazit envi</div>
+<div *ngIf="enviData!==undefined" class="jumbotron mt-28-px">
+  <h2>ENVIDATA</h2>
+  <div *ngFor="let envi of enviData">
+   <b>recordedTime : </b> {{envi.recordedTime}}
+   <b>deviceId : </b> {{envi.deviceId}}
+   <b>lat : </b> {{envi.lat}}
+   <b>lon : </b> {{envi.lon}}
+   <b>nO2 : </b> {{envi.nO2}}
+   <b>noisE_AVG : </b> {{envi.noisE_AVG}}
+   <b>noisE_MAX : </b> {{envi.noisE_MAX}}
+   <b>pM01 : </b> {{envi.pM01}}
+   <b>pM10 : </b> {{envi.pM10}}
+   <b>pM25 : </b> {{envi.pM25}}
+  </div>
+</div>

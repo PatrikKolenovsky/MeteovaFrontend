@@ -1,0 +1,26 @@
+<div class="row">
+  <div class="col-12">
+    <div class="map-container">
+
+      <div id="map">
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-lg-10 col-md-10"></div>
+  <div class="col-lg-2 col-md-2 pull-right map-legend" *ngIf="selectedDevice!==undefined">
+    <span (click)="closeSelectedDevice()">
+      <img alt="close" class="pull-right" src="assets/images/close.png">
+    </span>
+    <h4>{{selectedDevice.device_location}} </h4>
+    <hr>
+    <p>
+      <b> ID </b> {{selectedDevice.deviceId}} <br>
+      <b> device name id </b> {{selectedDevice.deviceNameId}}<br>
+    </p>
+    <div class="text-center">
+      <div class="mt-4-px mb-15-px text-center btn btn-info" (click)="showDetail()">Detail</div>
+    </div>
+  </div>
+</div>

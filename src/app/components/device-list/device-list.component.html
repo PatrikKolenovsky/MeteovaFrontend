@@ -1,0 +1,15 @@
+<div (click)="toggleContent()" class="d-grid ml-5">
+  <input class="mt-4-px pd-btn bd-light h4"  (keyup)="selectDeviceFulltextHandler($event)"
+         placeholder="Vyhledat zařízení"
+         type="text">
+  <div id="#device-select-list" class="dropdown text-primary-dark-no-hv text-primary-font wd-mx-co"
+  >
+    <div *ngIf="content == true">
+      <div class="dropdown-content wd-mx-co">
+        <div *ngFor="let device of deviceData" (click)="selectDeviceHandler($event);toggleContent()">
+          <div class="dropdown-item pd-5-px device-list-text" id="{{device.deviceId}}">{{device.device_location}}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
