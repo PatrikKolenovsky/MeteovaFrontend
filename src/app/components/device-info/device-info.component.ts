@@ -1,7 +1,9 @@
 import {Component, OnInit} from '@angular/core';
 import {Device} from '../../model/device.model';
+import {Module} from '../../model/module';
 import {RestApiService} from '../../services/rest-api.service';
 import {DataTransferService} from '../../services/data-transfer.service';
+import {Envi} from '../../model/envi';
 
 @Component({
   selector: 'app-device-info',
@@ -10,7 +12,9 @@ import {DataTransferService} from '../../services/data-transfer.service';
 })
 export class DeviceInfoComponent implements OnInit {
   selectedDevice: Device;
+  moduleData: Module;
   selectedDeviceId: number;
+  enviData: Envi[];
   constructor(private readonly restApiService: RestApiService,
               private dataTransferService: DataTransferService) {
   }
@@ -18,9 +22,9 @@ export class DeviceInfoComponent implements OnInit {
   ngOnInit() {
     this.dataTransferService.sharedMessage.subscribe(message => {
       if (message === 'detail') {
-      this.restApiService.getDeviceDataById(this.selectedDeviceId)
+      this.restApiService.getDeviceDataDetailById(this.selectedDeviceId)
         .subscribe(
-          (selectedDevice: Device) => this.selectedDevice = selectedDevice,
+          (selectedDevice: Device) => [this.selectedDevice = selectedDevice, this.moduleData = selectedDevice.module],
           (error) => console.log(error),
           () => {
           }
@@ -32,4 +36,12 @@ export class DeviceInfoComponent implements OnInit {
     );
   }
 
+  setEnviData() {
+    this.restApiService.getAllEnviData().subscribe(
+      (enviData: Array<Envi>) => this.enviData = enviData,
+      (error) => console.log(error),
+      () => {
+      }
+    );
+  }
 }

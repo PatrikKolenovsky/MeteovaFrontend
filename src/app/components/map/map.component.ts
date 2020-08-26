@@ -49,7 +49,7 @@ export class MapComponent implements AfterViewInit, OnInit {
     this.dataTransferService.nextMessage('detail');
     setTimeout(() => {
       this.closeSelectedDevice();
-    }, 30);
+    }, 60);
 
   }
 
